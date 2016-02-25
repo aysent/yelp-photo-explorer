@@ -14,3 +14,17 @@ Yelp Dataset Challenge:
 Get data:
 
 [https://www.yelp.com/dataset_challenge/dataset](https://www.yelp.com/dataset_challenge/dataset)
+
+Download the following two files:
+
+```
+yelp_dataset_challenge_academic_dataset.tar
+2016_yelp_dataset_challenge_photos.tar
+```
+
+Extract files from these archives:
+
+```
+tar xvf yelp_dataset_challenge_academic_dataset.tar
+tar xvf 2016_yelp_dataset_challenge_photos.tar
+```
