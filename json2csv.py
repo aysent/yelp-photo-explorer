@@ -1,7 +1,7 @@
 import json
 
 def main():
-    input_json = json.load(open("photo_id_to_business_id.json"))
+    input_json = json.load(open("photos/photo_id_to_business_id.json"))
     
     # print the header of output csv file
     print 'photo_id,business_id,label'
