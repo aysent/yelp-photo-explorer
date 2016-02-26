@@ -9,7 +9,7 @@ def main():
     for line in open("data/yelp_academic_dataset_business.json"):
         input_json = json.loads(line)
         business_id = input_json['business_id']
-        city = input_json['city'].encode('ascii', 'ignore')
+        city = input_json['city'].encode('ascii', 'ignore').replace(',', '')
         latitude = str(input_json['latitude'])
         longitude = str(input_json['longitude'])
         print business_id + ',' + city + ',' + latitude + ',' + longitude
