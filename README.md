@@ -22,19 +22,11 @@ yelp_dataset_challenge_academic_dataset.tar
 2016_yelp_dataset_challenge_photos.tar
 ```
 
-Extract files from these archives:
+Extract files from these archives to 'data' and 'photos' directories:
 
 ```
-tar xvf yelp_dataset_challenge_academic_dataset.tar
-tar xvf 2016_yelp_dataset_challenge_photos.tar
-```
-
-Move photos to a separate directory:
-
-```
+mkdir data
+tar xvf yelp_dataset_challenge_academic_dataset.tar -C data
 mkdir photos
-for f in ./*jpg; mv -v $f photos; done
+tar xvf 2016_yelp_dataset_challenge_photos.tar -C photos
 ```
-
-One needs to use './' in front of '\*jpg' since filenames of some photos start with dash. 
-In addition, one can't move photos just using 'mv ./*jpg photos' since there are too many (200,000) photos for mv command (see, for example, [http://stackoverflow.com/questions/11289551/argument-list-too-long-error-for-rm-cp-mv-commands](http://stackoverflow.com/questions/11289551/argument-list-too-long-error-for-rm-cp-mv-commands)).
