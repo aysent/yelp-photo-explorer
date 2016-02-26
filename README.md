@@ -72,6 +72,27 @@ Load and save selected photos and AlexNet model in a format suitable for Dato Gr
 python photos2gl.py
 ```
 
+## Extracting deep features
+
+Extract deep features of selected photos using AlexNet neural network:
+
+```
+python extract_deep_features.py
+```
+
+The output dataset is available on Amazon S3 and can be loaded in python script as:
+
+```python
+import graphlab
+
+data = graphlab.SFrame('http://yelp-photo-explorer.s3.amazonaws.com/photos_deep_features.gl')
+```
+
+## Example of finding similar photos
+
+This repository provides an example ipython notebook that shows how deep features of photos can be used to train a nearest neighbors and query it to find photos similar to any given photo (PDF version of the notebook correctly shows similar photos).
+
+
 [1] [http://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf](http://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf)
 
 [2] [http://www.slideshare.net/dato-inc/introduction-to-deep-learning-for-image-analysis-at-strata-nyc-sep-2015](http://www.slideshare.net/dato-inc/introduction-to-deep-learning-for-image-analysis-at-strata-nyc-sep-2015)
