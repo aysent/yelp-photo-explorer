@@ -30,3 +30,50 @@ tar xvf yelp_dataset_challenge_academic_dataset.tar -C data
 mkdir photos
 tar xvf 2016_yelp_dataset_challenge_photos.tar -C photos
 ```
+
+## Preprocessing data
+
+For each photo extract its name, label, and corresponding business id from json file and save these data in csv format:
+
+```
+python json2csv_photos.py > photos.csv
+```
+
+For each business extract its id and location (city, latitude, longitude) from json file and save these data in csv format:
+
+```
+python json2csv_business.py > business.csv
+```
+
+Merge data about photos and corresponding businesses so that we know location of each photo:
+
+```
+python merge_photos_business.py
+```
+
+For this project we select photos of food and drinks taken in Las Vegas businesses, copy them to a separate directory:
+
+```
+python copy_selected_photos.py > copy_selected_photos.sh
+source copy_selected_photos.sh
+```
+
+In one of the following steps we will extract deep features of selected photos using AlexNet neural network [1] pre-trained and provided by Dato [2]. But before that we resize all photos to 256x256:
+
+```
+cd photos_las_vegas_food_drinks
+mogrify -resize 256x256\! ./*jpg
+cd ..
+```
+
+Load and save selected photos and AlexNet model in a format suitable for Dato GraphLab Create [3]:
+
+```
+python photos2gl.py
+```
+
+[1] [http://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf](http://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf)
+
+[2] [http://www.slideshare.net/dato-inc/introduction-to-deep-learning-for-image-analysis-at-strata-nyc-sep-2015](http://www.slideshare.net/dato-inc/introduction-to-deep-learning-for-image-analysis-at-strata-nyc-sep-2015)
+
+[3] [https://dato.com/products/create/](https://dato.com/products/create/)
