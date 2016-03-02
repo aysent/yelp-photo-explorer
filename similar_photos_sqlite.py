@@ -10,7 +10,7 @@ def main():
     nn_model = graphlab.nearest_neighbors.create(photos, features=['deep_features'], label='path')
 
     # sqlite database: key = photo name (p), value = list of names of 12 similar photos (p0, ..., p11)
-    conn = sqlite3.connect('yelp-photo-explorer.sqlite')
+    conn = sqlite3.connect('similar_photos.sqlite')
     c = conn.cursor()
     c.execute('CREATE TABLE photos (p, p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11)')
 
