@@ -1,5 +1,8 @@
 # yelp-photo-explorer
-Explore new businesses on Yelp using photo similarity
+
+The project allows to explore new Yelp businesses on Google Maps using similarity between photos of food and drinks. The features used for calculation of the similatiry are extracted from photos with pre-trained AlexNet convolutional network. The information about similar photos is stored in a local SQL database. The web app uses Flask python framework, Google Maps JS API, Twitter Bootstrap, SQLite. The ptotoptype of the app is deployed on Amazon Elastic Beanstalk:
+
+http://yelp-photo-explorer.us-west-2.elasticbeanstalk.com
 
 ## Getting data
 
